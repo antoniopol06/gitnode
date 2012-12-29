@@ -1,0 +1,14 @@
+extends layout
+
+block content
+	h1= title
+	section#usuarios
+		if(usuarios)
+			each u in usuarios
+				p #{u.usuario}
+	section#formulario
+		form(action="/anadir", method="post")
+			label Usuario
+			input(type="text", name="usuario", id="usuario")
+			br
+			input(type="submit", value="Añadir")
