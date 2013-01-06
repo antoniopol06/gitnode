@@ -1,0 +1,21 @@
+extends layout
+
+block content
+	h1= title
+	p Formulario de Login
+	section#login
+		if(usuarios)
+			section#usuarios
+				h4 Listado de usuarios registrados
+				section#listado
+	#form
+		form(method='post', action='/registrarse')
+			b usuario
+			br
+			input(type='text', name='usuario', id='usuario')
+			br
+			b contraseña
+			br
+			input(type='password', name='pass', id='pass')
+			br
+			input(type='button', value='enviar', id='enviar')

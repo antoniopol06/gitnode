@@ -36,7 +36,10 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-//app.post('/anadir', routes.anadir);
+app.get('/editar/:usuario', routes.editar);
+app.post('/editar', routes.editarusuario);
+app.post('/anadir', routes.anadir);
+app.post('/borrar', routes.borrar);
 app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){
@@ -44,4 +47,4 @@ http.createServer(app).listen(app.get('port'), function(){
 });
 
 //mongoose
-mongoose.connect( 'mongodb://localhost/prueba' );
+mongoose.connect( 'mongodb://localhost/uno' );

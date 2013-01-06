@@ -1,0 +1,8 @@
+extends layout
+
+block content
+	h1= title
+	section#bienvenido bienvenido #{usuario}
+	section#salir
+		form(action="/salir", method="post")
+			input(type="submit", value="salir")

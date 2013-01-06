@@ -1,0 +1,10 @@
+extends layout
+
+block content
+	h1= title
+	section#formulario
+		form(action="/login", method="post")
+			label Usuario
+			input(type="text", name="usuario", id="usuario")
+			br
+			input(type="submit", value="loguearse")

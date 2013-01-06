@@ -1,0 +1,12 @@
+extends layout
+
+block content
+	h1= title
+	section#mensaje
+	#form
+		form(method='post', action='/chat', onsubmit='return enviarUsuario();', id='formulario')
+			b Nombre de Usuario
+			br
+			input(type='text', name='usuario', id='usuario')
+			br
+			input(type='submit', value='entrar', id='entrar', name='entrar')

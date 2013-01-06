@@ -1,0 +1,14 @@
+extends layout
+
+block content
+	h1= title
+	section#formulario
+		form(action="/editar", method="post")
+			label Usuario
+			input(type="hidden", id="usuarioantiguo", name="usuarioantiguo", value="#{usuarioantiguo}")
+			input(type="text", name="nuevousuario", id="nuevousuario", placeholder="#{usuario.usuario}")
+			br
+			input(type="submit", value="Editar")
+		form(action="/borrar", method="post")
+			input(type="hidden", id="usuarioantiguo", name="usuarioantiguo", value="#{usuario.usuario}")
+			input(type="submit", value="Borrar")

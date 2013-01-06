@@ -3,9 +3,12 @@ extends layout
 block content
 	h1= title
 	section#usuarios
-		if(usuarios)
+		if(usuarios=='vacio')
+			p No existen usuarios
+		else
 			each u in usuarios
-				p #{u.usuario}
+				p 
+					a(href='/editar/#{u.usuario}', title='Editar #{u.usuario}') #{u.usuario}
 	section#formulario
 		form(action="/anadir", method="post")
 			label Usuario

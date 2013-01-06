@@ -1,0 +1,12 @@
+extends layout
+
+block content
+	h2 Bienvenido #{usuario} al nuevo Chat
+	section#usuarios
+	#form
+		form(method='post', action='#')
+			b Comentario
+			br
+			textarea(name='comentario', id='comentario')
+			br
+			input(type='button', value='enviar', id='enviar')
