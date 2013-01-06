@@ -1,0 +1,9 @@
+extends layout
+
+block content
+	h1= title
+	p Welcome to #{title}
+	form(action='/entrar', method='post')
+		input(type='text', name='usuario', id='usuario', placeholder='Usuario')
+		br
+		input(type='submit', value='Entrar')

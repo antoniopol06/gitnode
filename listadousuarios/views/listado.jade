@@ -1,0 +1,12 @@
+extends layout
+
+block content
+	h1= title
+	if(usuarios)
+		each usuario in usuarios
+			p #{usuario}
+	h1 Agregar Usuario
+	form(action='/nuevousuario', method='post')
+		input(type='text', name='usuario', id='usuario', placeholder='usuario')
+		br
+		input(type='submit', value='Agregar Usuario')
