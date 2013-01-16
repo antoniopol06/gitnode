@@ -1,0 +1,12 @@
+extends layout
+
+block content
+	h1= title
+	h2 Bienvenido #{usuario}
+	h3 Listado de Usuarios
+	if(usuarios)
+		each u in usuarios
+			if(usuario!=u.usuario)
+				p #{u.usuario}
+	form(action='/salir', method='post')
+		input(type='submit', value='Salir')
