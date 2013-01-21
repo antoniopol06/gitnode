@@ -28,16 +28,12 @@ app.configure(function(){
 app.configure('development', function(){
   app.use(express.errorHandler());
 });
-
-app.get('/', routes.index);
-//enviar el formulario de login
-app.post('/login', routes.login);
-//si el usuario ya existe
-app.get('/errorUsuario', routes.errorUsuario);
-//entrar al chat
-app.get('/chat', routes.chat);
-//salir del chat
-app.post('/salir', routes.salir);
+////
+app.get('/', routes.index);// llamamos a routes.index cuando entramos a la página principal
+app.post('/login', routes.login);//llamamos a routes.login cuando enviamos el formulario de la pagina inicial o de la pagina errorUsuario
+app.get('/errorUsuario', routes.errorUsuario);//En /login determinamos si es valido el usuario, si ya existe llamaremos a routes.errorUsuario
+app.get('/chat', routes.chat);//Si existe le enviaremos a /chat llamando a routes.chat
+app.post('/salir', routes.salir);//Dentro del chat al clickar en el boton salir, llamaremos a routes.salir
 app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){

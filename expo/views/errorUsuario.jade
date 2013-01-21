@@ -2,10 +2,10 @@ extends layout
 
 block content
 	h1= title
-	p El usuario ya existe, prueba un nombre de usuario diferente
+	p El usuario ya existe, pruebe de nuevo.
 	form(action='/login', method='post')
 		label Usuario
 		br
-		input(type='text', name='usuario', id='usuario')
+		input(type='text',name='usuario',id='usuario')
 		br
 		input(type='submit', value='Entrar')
