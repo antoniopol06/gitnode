@@ -1,0 +1,14 @@
+extends layout
+
+block content
+	h1= title
+	form(action='/enviar', method='post')
+		label Email
+		input(type='email', name='email', id='email')
+		br
+		label Asunto
+		input(type='text', name='asunto', id='asunto')
+		br
+		textarea(name='texto', id='texto')
+		br
+		input(type='submit', value='enviar')
