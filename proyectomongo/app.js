@@ -10,8 +10,7 @@ var express = require('express')
   , app = express()
   , http = require('http')
   , mongoose= require('mongoose')
-  , server = module.exports = http.createServer(app)
-  , io = require('socket.io').listen(server);
+  , server = module.exports = http.createServer(app);
 
 
 

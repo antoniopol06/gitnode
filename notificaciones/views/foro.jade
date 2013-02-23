@@ -1,0 +1,43 @@
+doctype 5
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		script(type="text/javascript", src="http://localhost:3000/socket.io/socket.io.js")
+		script(src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+		script(src='/javascripts/funciones.js')
+	body
+		section#notificaciones
+		h1= title
+		p Hola #{usuario}
+		p Deje su tema a continuación
+		form#nuevotema(action='/anadirTema', method='post')
+			textarea(id='tema', name='tema')
+			br
+			input(type='submit', value='Enviar')
+		h2 Temas
+		if(temas==0)
+			p Actualmente no existen temas
+		else
+			each tema in temas
+				section.tema
+					p.t #{tema.tema}
+					p.u #{tema.usuario}
+					section.mensajes
+						if(tema.mensajes==0)
+							p No se ha contestado todavía, se el primero
+						else
+							if(tema.mensajes)
+								each mensaje in tema.mensajes
+									section.mensaje
+										p.m #{mensaje.mensaje}
+										p.mu #{mensaje.usuario}
+					section(class='contestacion_' + tema.id+' contestaciones')
+						form(action='/contestarTema', method='post', onsubmit='notificacion()')
+							input(type='hidden', name='tema', id='tema', value='#{tema._id}')
+							textarea(id='mensaje', name='mensaje')
+							br
+							input(type='submit', value='Enviar')
+					input(type="button", class="contestar", id="#{tema.id}", value="Contestar")
+		form#salir(method='post', action='/salir')
+			input(type='submit', value='Salir')

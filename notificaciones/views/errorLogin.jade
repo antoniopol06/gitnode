@@ -1,0 +1,11 @@
+extends layout
+
+block content
+	h1= title
+	p Inténtelo de nuevo
+	form#login(action="/login", method="post")
+		input(type="text", name="usuario", id="usuario", placeholder="usuario")
+		br
+		input(type="password", name="pass", id="pass", placeholder="pass")
+		br
+		input(type="submit", value="Entrar")
